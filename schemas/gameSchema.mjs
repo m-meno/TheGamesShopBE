@@ -12,6 +12,6 @@ const gameSchema = new mongoose.Schema({
     desc: {type: String},
     qty: {type: Number, required: true}
 
-})
+});
 
 export default mongoose.model("Game", gameSchema);

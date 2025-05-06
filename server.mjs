@@ -5,6 +5,7 @@ import morgan from "morgan";
 import connectDB from "./db/conn.mjs"
 import cors from "cors";
 import globalError from "./middleware/globalError.mjs";
+import userRoutes from "./routes/userRoutes.mjs"
 
 
 //Setup
@@ -21,6 +22,7 @@ app.use(express.json());
 
 
 //Routes
+app.use('/api/users', userRoutes);
 
 //Error Handling Middleware
 app.use(globalError);
