@@ -1,1 +1,31 @@
+//Imports
 import express from "express";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import cors from "cors";
+import globalError from "./middleware/globalError.mjs";
+
+
+//Setup
+dotenv.config();
+const PORT = process.env.PORT || 3001;
+const app = express();
+
+
+//Middleware
+app.use(cors());
+app.use(morgan("tiny"));
+app.use(express.json());
+
+
+//Routes
+
+//Error Handling Middleware
+app.use(globalError);
+
+//Listener
+app.listen(PORT, ()=> {
+    console.log(`Server Running on Port: ${PORT}.`)
+});
+
+
